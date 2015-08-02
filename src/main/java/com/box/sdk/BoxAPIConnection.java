@@ -142,7 +142,9 @@ public class BoxAPIConnection {
         BoxAPIRequest request = new BoxAPIRequest(this, url, "POST");
         request.shouldAuthenticate(false);
         request.setBody(urlParameters);
-
+        request.addHeader("box_device_id","0");
+        request.addHeader("box_device_name","");
+        
         BoxJSONResponse response = (BoxJSONResponse) request.send();
         String json = response.getJSON();
 
